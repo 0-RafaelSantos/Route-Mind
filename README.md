@@ -150,7 +150,3 @@ This separation ensures maintainability, testability, and extensibility.
 Software Engineer | Applied AI & Computer Graphics
 
 ---
-
-## 📄 License
-
-MIT License
