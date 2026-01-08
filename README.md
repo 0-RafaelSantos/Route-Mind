@@ -1,152 +1,156 @@
-# 🧠 RouteMind
+# RouteMind
 
-**RouteMind** is an intelligent path planning and decision analysis system designed to compare and evaluate different routing algorithms in grid-based environments.
+RouteMind is a **pathfinding and decision‑making project** focused on comparing classic AI search algorithms in a controlled grid environment.
+The goal is to demonstrate, in a **clear and visual way**, how different algorithms behave when facing obstacles and variable movement costs.
 
-The project focuses on **algorithmic correctness**, **performance evaluation**, and **clear visualization**, making it suitable for academic purposes, engineering interviews, and applied AI experimentation.
-
----
-
-## 🎯 Project Goals
-
-* Implement classic and informed path planning algorithms
-* Compare algorithms using objective metrics
-* Visualize search behavior and final paths
-* Provide a clean, extensible architecture
-* Demonstrate applied AI and algorithmic reasoning
+This project was designed as a **portfolio‑level example** of applied Artificial Intelligence and algorithmic reasoning.
 
 ---
 
-## 🧩 Problem Definition
+## 🚀 Features
 
-Given a grid-based environment with:
-
-* a **start node**
-* a **goal node**
-* **obstacles**
-* optional **cell costs**
-
-The system computes a path between start and goal while optimizing for cost or distance, depending on the algorithm.
-
-Each algorithm is evaluated under identical conditions to allow fair comparison.
+- Grid‑based environment
+- Obstacles and variable terrain costs
+- Implementations of:
+- **Breadth‑First Search (BFS)**
+- **Dijkstra’s Algorithm**
+- **A\*** (A‑Star)
+- ASCII visualization of paths in the terminal
+- Automatic comparison of algorithms using real metrics
 
 ---
 
-## 🤖 Implemented Algorithms
+## 🧠 Algorithms Implemented
 
-### Mandatory (Core)
+### 🔹 Breadth‑First Search (BFS)
+- Explores the grid uniformly
+- Guarantees the shortest path in number of steps
+- Ignores movement cost
+- Explores many unnecessary nodes
 
-* **Breadth-First Search (BFS)**
-* **Dijkstra's Algorithm**
-* **A*** (Manhattan & Euclidean heuristics)
-
-### Optional / Extensions
-
-* Greedy Best-First Search
-* Weighted A*
-* Genetic or heuristic-based approaches (future work)
+**Best used when:** all movements have equal cost
 
 ---
 
-## 📊 Evaluation Metrics
+### 🔹 Dijkstra
+- Considers movement cost of each cell
+- Guarantees the cheapest path
+- Explores fewer nodes than BFS
 
-Each execution collects the following metrics:
-
-* Path length
-* Total cost
-* Number of explored nodes
-* Execution time (ms)
-
-Metrics are used to objectively compare algorithm efficiency and optimality.
+**Best used when:** terrain costs vary
 
 ---
 
-## 🖥️ Visualization
+### 🔹 A\* (A‑Star)
+- Combines real cost (`g`) with heuristic estimation (`h`)
+- Uses Manhattan distance as heuristic
+- Finds optimal paths while exploring far fewer nodes
 
-The system includes an interactive visualization layer:
-
-* Grid-based representation (2D)
-* Step-by-step exploration animation
-* Visual distinction between:
-
-  * explored nodes
-  * final path
-  * obstacles
-
-> Visualization is intentionally decoupled from algorithm logic.
+**Best used when:** you want optimal paths with high performance (games, robotics, GPS)
 
 ---
 
-## 🏗️ Architecture Overview
 
+## 🗺️ Grid Representation
+
+Symbols used in the terminal visualization:
+
+- `S` → Start node
+- `G` → Goal node
+- `*` → Path found by the algorithm
+- `X` → Obstacle (non‑walkable)
+- `.` → Free cell
+
+Example:
+
+S * * * .
+. X X * .
+. . . * G
 ```
+
+---
+
+## 📊 Algorithm Comparison
+
+All algorithms are executed on the **same scenario** and compared using:
+
+- Path length
+- Number of explored nodes
+- Execution time (ms)
+
+Example output:
+
+Algorithm | Path Length | Explored Nodes | Time (ms)
+-----------------------------------------------------
+BFS       |      14     |       52       |   0.34
+Dijkstra  |      16     |       34       |   0.41
+A*        |      16     |       15       |   0.18
+
+This comparison highlights how **A\*** achieves the same optimal path as Dijkstra while being significantly more efficient.
+
+---
+
+## 🏗️ Project Structure
+
 RouteMind/
-│
 ├── backend/
-│   ├── algorithms/        # Path planning algorithms
-│   ├── models/            # Grid and node representations
-│   ├── metrics/           # Performance evaluation
-│   └── index.ts           # Execution entry point
-│
-├── frontend/
-│   ├── visualizer/        # Grid & animation logic
-│   ├── controls/          # UI interactions
-│   └── ui/                # Layout and components
-│
+│ ├── algorithms/
+│ │ ├── bfs.ts
+│ │ ├── dijkstra.ts
+│ │ └── astar.ts
+│ ├── models/
+│ │ ├── Grid.ts
+│ │ └── Node.ts
+│ ├── utils/
+│ │ └── drawGrid.ts
+│ └── index.ts
 └── README.md
-```
+---
 
-This separation ensures maintainability, testability, and extensibility.
+## ▶️ How to Run
+
+### 1️⃣ Install dependencies
+
+
+  bash
+npm install
+
+### 2️⃣ Run the project
+
+  bash
+npx ts-node backend/index.ts
+
+The terminal will display:
+- Algorithm metrics
+- ASCII visualization of the resulting path
 
 ---
 
-## 🧪 Testing
+## 🎯 Learning Outcomes
 
-* Unit tests for each algorithm
-* Edge cases (blocked paths, trivial paths)
-* Randomized grid generation for robustness
+This project demonstrates:
 
----
-
-## 🚀 Tech Stack
-
-* **Language:** TypeScript
-* **Backend:** Node.js
-* **Frontend:** React
-* **Visualization:** HTML Canvas / Three.js (optional)
-* **Testing:** Jest
+- Applied Artificial Intelligence
+- Algorithm comparison and benchmarking
+- Clean architecture and separation of concerns
+- Practical understanding of search algorithms
 
 ---
 
-## 📈 Example Use Cases
+## 🔮 Possible Extensions
 
-* Algorithm comparison for robotics and logistics
-* Academic demonstrations of search algorithms
-* AI and software engineering portfolios
-* Performance benchmarking experiments
-
----
-
-## 🧠 Key Engineering Decisions
-
-* Algorithms are deterministic and reproducible
-* Metrics are collected independently of visualization
-* No framework-specific dependencies in core logic
-
----
-
-## 📌 Future Improvements
-
-* 3D visualization
-* Dynamic obstacle handling
-* Multi-agent path planning
-* Export results to CSV
-* Web-based benchmarking dashboard
+- Diagonal movement
+- Weighted heuristics
+- 2D/3D graphical visualization (Canvas / Three.js)
+- Real‑world map data
 
 ---
 
 ## 👤 Author
 
 **Rafael Santos**
-Software Engineer | Applied AI & Computer Graphics
+Computer Engineer
 
 ---
+
+⭐ If you found this project useful, consider giving it a star!
