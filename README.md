@@ -1,6 +1,6 @@
 # RouteMind
 
-RouteMind is a **pathfinding and decision‑making project** focused on comparing classic AI search algorithms in a controlled grid environment.
+RouteMind is a **pathfinding and decision‑making project** focused on comparing classic AI search algorithms in a controlled grid environment.  
 The goal is to demonstrate, in a **clear and visual way**, how different algorithms behave when facing obstacles and variable movement costs.
 
 This project was designed as a **portfolio‑level example** of applied Artificial Intelligence and algorithmic reasoning.
@@ -12,9 +12,9 @@ This project was designed as a **portfolio‑level example** of applied Artifici
 - Grid‑based environment
 - Obstacles and variable terrain costs
 - Implementations of:
-- **Breadth‑First Search (BFS)**
-- **Dijkstra’s Algorithm**
-- **A\*** (A‑Star)
+  - **Breadth‑First Search (BFS)**
+  - **Dijkstra’s Algorithm**
+  - **A\*** (A‑Star)
 - ASCII visualization of paths in the terminal
 - Automatic comparison of algorithms using real metrics
 
@@ -50,7 +50,6 @@ This project was designed as a **portfolio‑level example** of applied Artifici
 
 ---
 
-
 ## 🗺️ Grid Representation
 
 Symbols used in the terminal visualization:
@@ -62,7 +61,7 @@ Symbols used in the terminal visualization:
 - `.` → Free cell
 
 Example:
-
+```
 S * * * .
 . X X * .
 . . . * G
@@ -80,11 +79,13 @@ All algorithms are executed on the **same scenario** and compared using:
 
 Example output:
 
-Algorithm | Path Length | Explored Nodes | Time (ms)
+```
+Algorithm   | Path Length | Explored Nodes | Time (ms)
 -----------------------------------------------------
-BFS       |      14     |       52       |   0.34
-Dijkstra  |      16     |       34       |   0.41
-A*        |      16     |       15       |   0.18
+BFS         | 14          | 52             | 0.34
+Dijkstra    | 16          | 34             | 0.41
+A*          | 16          | 15             | 0.18
+```
 
 This comparison highlights how **A\*** achieves the same optimal path as Dijkstra while being significantly more efficient.
 
@@ -92,33 +93,37 @@ This comparison highlights how **A\*** achieves the same optimal path as Dijkstr
 
 ## 🏗️ Project Structure
 
+```
 RouteMind/
 ├── backend/
-│ ├── algorithms/
-│ │ ├── bfs.ts
-│ │ ├── dijkstra.ts
-│ │ └── astar.ts
-│ ├── models/
-│ │ ├── Grid.ts
-│ │ └── Node.ts
-│ ├── utils/
-│ │ └── drawGrid.ts
-│ └── index.ts
+│   ├── algorithms/
+│   │   ├── bfs.ts
+│   │   ├── dijkstra.ts
+│   │   └── astar.ts
+│   ├── models/
+│   │   ├── Grid.ts
+│   │   └── Node.ts
+│   ├── utils/
+│   │   └── drawGrid.ts
+│   └── index.ts
 └── README.md
+```
+
 ---
 
 ## ▶️ How to Run
 
 ### 1️⃣ Install dependencies
 
-
-  bash
+```bash
 npm install
+```
 
 ### 2️⃣ Run the project
 
-  bash
+```bash
 npx ts-node backend/index.ts
+```
 
 The terminal will display:
 - Algorithm metrics
@@ -148,7 +153,7 @@ This project demonstrates:
 
 ## 👤 Author
 
-**Rafael Santos**
+**Rafael Santos**  
 Computer Engineer
 
 ---
