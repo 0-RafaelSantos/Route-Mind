@@ -76,11 +76,14 @@ return neighbors;
 }
 
 
-reset(): void {
-        for (const row of this.nodes) {
-            for (const node of row) {
-            node.reset();
-            }
-        }
+reset() {
+  for (const row of this.nodes) {
+    for (const node of row) {
+      node.g = Infinity;
+      node.h = 0;
+      node.f = Infinity;
+      node.parent = null;
     }
+  }
+}
 }

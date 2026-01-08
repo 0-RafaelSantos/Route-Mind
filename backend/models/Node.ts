@@ -2,7 +2,7 @@ export class Node {
 readonly x: number;
 readonly y: number;
 walkable: boolean;
-cost: number;
+cost: number = 1; 
 
 
 // Pathfinding fields
