@@ -33,7 +33,11 @@ obstacles.forEach(([x, y]) => {
 
 
 getNode(x: number, y: number): Node {
-    return this.nodes[y][x];
+  if (!this.isInside(x, y)) {
+    throw new Error(`Coordinates out of bounds: (${x}, ${y})`);
+  }
+
+  return this.nodes[y][x];
 }
 
 
